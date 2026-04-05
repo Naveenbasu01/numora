@@ -1,5 +1,14 @@
-<div class="sub-transaction">
+<div
+  class="sub-transaction"
+  [ngClass]="
+    transaction.type == 'income'
+      ? 'income'
+      : transaction.category == 'Savings'
+        ? 'savings'
+        : 'expense'
+  "
+>
   <div class="type">
-    {{ transaction.type }}
+    {{ transaction.category }}
   </div>
 </div>

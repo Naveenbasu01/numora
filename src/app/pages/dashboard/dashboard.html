@@ -2,7 +2,10 @@
   <div class="ds_1">
     <div class="row">
       <div class="col-xxl-5 col-lg-6 col-md-12 col-sm-12 ds_1_col">
-        <app-primary-card></app-primary-card>
+        <app-primary-card
+          [transactions]="transactions"
+          (triggerTransaction)="receiveTransactionTrigger($event)"
+        ></app-primary-card>
       </div>
 
       <div class="col-xxl-7 col-lg-6 col-md-12 col-sm-12 ds_1_col_2">
@@ -20,3 +23,9 @@
     </div>
   </div>
 </div>
+<app-transaction-modal
+  *ngIf="showModal"
+  [data]="editingTransaction"
+  (save)="handleSave($event)"
+  (close)="close()"
+></app-transaction-modal>

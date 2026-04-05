@@ -45,7 +45,7 @@ export class TransactionService {
   }
 
   updateTransaction(id: number, updatedData: Partial<Omit<Transaction, 'id'>>) {
-    this.ledger.update((list) => list.map((t) => (t.id === id ? { ...t, ...updatedData } : t)));
+    this.ledger.update((list) => list.map((t) => (t.id === id ? { ...updatedData, ...t } : t)));
   }
 
   deleteTransaction(id: number) {

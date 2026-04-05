@@ -1,7 +1,12 @@
 <div class="primary-card">
   <div class="pc-first-block">
     <h6>Total balance</h6>
-    <h2><b> ₹ 31,310.00</b></h2>
+    <h2 class="amount">
+      <span class="rupees">
+        {{ getDashboardData().balance | currency: 'INR' : 'symbol' : '1.0-0' }}
+      </span>
+      <span class="paise"> .{{ (getDashboardData().balance % 1) * 100 | number: '2.0' }} </span>
+    </h2>
   </div>
 
   <div class="pc-actions">
@@ -18,10 +23,10 @@
       <h6>Recent</h6>
     </div>
     <div class="pct-wrapper">
-      <ng-container *ngFor="let item of sampleTransaction; let i = index">
+      <ng-container *ngFor="let item of transactions.slice(0, 2); let i = index">
         <app-sub-transaction [transaction]="item" [ngClass]="'ast_' + i"></app-sub-transaction>
       </ng-container>
-      <div class="pct-add ast_2">
+      <div class="pct-add ast_2" (click)="addTransaction()">
         <img src="https://cdn-icons-png.flaticon.com/512/8191/8191584.png" />
       </div>
     </div>

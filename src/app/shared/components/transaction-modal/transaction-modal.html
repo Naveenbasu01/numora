@@ -1,0 +1,44 @@
+<div class="modal-backdrop" (click)="close.emit()"></div>
+
+<div class="transaction-modal">
+  <h3 [class.errorTxt]="errorTxt">
+    {{ errorTxt ? errorTxt : data ? 'Edit Transaction' : 'New Transaction' }}
+  </h3>
+
+  <form (ngSubmit)="submit()" [formGroup]="transactionForm">
+    <label>
+      Type *
+      <select formControlName="type" name="type">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+    </label>
+
+    <label>
+      Category *
+      <select formControlName="category" name="category">
+        <option value="" disabled>Select category</option>
+        <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+      </select>
+    </label>
+
+    <label>
+      Amount *
+      <input type="number" formControlName="amount" name="amount" required />
+    </label>
+
+    <label>
+      Date *
+      <input type="date" formControlName="date" name="date" required />
+    </label>
+    <label>
+      Notes *
+      <textarea formControlName="notes" name="notes"></textarea>
+    </label>
+
+    <div class="actions">
+      <button type="button" class="cancel" (click)="close.emit()">Cancel</button>
+      <button type="submit" class="save">Save</button>
+    </div>
+  </form>
+</div>

@@ -1,8 +1,9 @@
+import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sub-transaction',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './sub-transaction.html',
   styleUrl: './sub-transaction.scss',
 })

@@ -76,3 +76,11 @@ export const aprilLegder = [
     date: '2026-04-05',
   },
 ];
+export interface Transaction {
+  id: number;
+  type: 'income' | 'expense';
+  amount: number;
+  category: string;
+  notes: string;
+  date: string;
+}

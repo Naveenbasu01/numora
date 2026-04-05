@@ -17,6 +17,21 @@
     }
     h2{
       margin-left: 10px;
+      &.amount {
+      font-weight: 700;
+
+      .rupees {
+        font-size: 32px;
+        color: #111827;
+        letter-spacing: 2px;
+      }
+
+      .paise {
+        font-size: 25px;
+        color: #9ca3af;
+        margin-left: 0px;
+      }
+    }
     }
   }
   .pc-actions {
