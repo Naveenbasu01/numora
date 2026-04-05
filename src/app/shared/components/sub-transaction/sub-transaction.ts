@@ -1,9 +1,9 @@
-import { NgClass } from '@angular/common';
+import { CurrencyPipe, NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sub-transaction',
-  imports: [NgClass],
+  imports: [NgClass, CurrencyPipe],
   templateUrl: './sub-transaction.html',
   styleUrl: './sub-transaction.scss',
 })

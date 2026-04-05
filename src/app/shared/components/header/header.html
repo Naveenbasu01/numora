@@ -1,1 +1,19 @@
-<div class="container header-section"></div>
+<div class="container header-section">
+  <img src="assets/images/numora.png" />
+  <div class="role-switch" (click)="toggle()">
+    <div class="switch-track">
+      <!-- Icons layer -->
+      <div class="icons">
+        <span class="icon user">
+          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" />
+        </span>
+        <span class="icon admin">
+          <img src="https://cdn-icons-png.flaticon.com/512/3934/3934107.png" />
+        </span>
+      </div>
+
+      <!-- Thumb -->
+      <div class="switch-thumb" [class.left]="isUser"></div>
+    </div>
+  </div>
+</div>

@@ -45,6 +45,8 @@ export default class Dashboard implements OnInit {
 
   handleSave(data: Omit<Transaction, 'id'>) {
     if (this.editingTransaction) {
+      console.log('editing-transaction :', this.editingTransaction, data);
+
       this.transactionService.updateTransaction(this.editingTransaction.id, data);
     } else {
       this.transactionService.addTransaction(data);
@@ -53,6 +55,6 @@ export default class Dashboard implements OnInit {
   }
 
   receiveTransactionTrigger(event: any) {
-    this.open();
+    this.open(event);
   }
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CoreService } from '../../service/core-service';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './header.scss',
 })
 export class Header {
+  private coreService = inject(CoreService);
+  isUser = true;
 
+  toggle() {
+    this.isUser = !this.isUser;
+    this.coreService.toggle();
+  }
 }

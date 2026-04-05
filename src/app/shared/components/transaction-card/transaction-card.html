@@ -24,6 +24,7 @@
     [class.income]="t.type === 'income'"
     [class.expense]="t.type === 'expense'"
     [class.savings]="t.category === 'Savings'"
+    (click)="editTransaction(t)"
   >
     <!-- Icon -->
     <div class="icon">

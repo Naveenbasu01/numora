@@ -1,24 +1,54 @@
-.sub-transaction{
+.sub-transaction {
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-radius: 15px;
-  // box-shadow:
-  //   0 30px 60px rgba(0, 0, 0, 0.08),
-  //   inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-  padding:10px;
+  padding: 10px;
   display: flex;
-  flex-direction: column;
-  gap: 15px;
   width: 100%;
-  min-height: 150px;
-  &.expense{
+  height: 150px;
+
+  &.expense {
     border: 2px solid #fee2e2;
   }
-  &.income{
-    border : 2px solid #dcfce7;
+
+  &.income {
+    border: 2px solid #dcfce7;
   }
-  &.savings{
-    border : 2px solid #e0f2fe;
+
+  &.savings {
+    border: 2px solid #e0f2fe;
+  }
+
+  .type {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 6px;
+
+    .category {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .notes {
+      font-size: 13px;
+      color: #64748b;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .amount {
+      margin-top: auto;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+      align-self: flex-end;
+      margin-bottom: 0px;
+    }
   }
 }

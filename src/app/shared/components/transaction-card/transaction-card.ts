@@ -1,8 +1,9 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, effect, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { aprilLegder } from '../../constants/ledger';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TransactionService } from '../../service/trasaction-service';
+import { CoreService } from '../../service/core-service';
 
 @Component({
   selector: 'app-transaction-card',
@@ -12,10 +13,19 @@ import { TransactionService } from '../../service/trasaction-service';
 })
 export class TransactionCard implements OnInit {
   @Input() transactions: any[] = [];
+  @Output() triggerTransaction = new EventEmitter<any>();
 
   searchText = '';
   startDate: string | null = null;
   endDate: string | null = null;
+  role: string = 'user';
+
+  constructor(private coreService: CoreService) {
+    effect(() => {
+      this.role = coreService.role();
+      console.log('Role changed:', coreService.role());
+    });
+  }
 
   ngOnInit(): void {
     const now = new Date();
@@ -47,5 +57,13 @@ export class TransactionCard implements OnInit {
 
       return textMatch && startMatch && endMatch;
     });
+  }
+
+  editTransaction(data: any) {
+    if (this.role == 'admin') {
+      console.log('triggered :', data);
+
+      this.triggerTransaction.emit(data);
+    }
   }
 }

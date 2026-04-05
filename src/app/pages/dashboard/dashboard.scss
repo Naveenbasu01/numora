@@ -37,6 +37,10 @@
     .ds_1 ,.ds_2{
       height: auto;
       .row{
+        .ds_1_col , .ds_2_col_2{
+          display: flex;
+          justify-content: center;
+        }
         .ds_1_col_2{
           height: auto;
         }

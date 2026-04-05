@@ -11,7 +11,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 360px;
+  width: min(450px, 90dvw);
   padding: 20px;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.9);
@@ -54,10 +54,18 @@
 
     .actions {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       gap: 10px;
       margin-top: 8px;
-
+      .delete-action{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+      }
+      .other-actions{
+        display: flex;
+        gap: 10px;
+      }
       button {
         padding: 8px 14px;
         border-radius: 10px;
@@ -72,6 +80,11 @@
 
       .save {
         background: #6366f1;
+        color: white;
+      }
+
+      .delete{
+        background-color: red;
         color: white;
       }
     }

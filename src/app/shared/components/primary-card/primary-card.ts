@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, effect, EventEmitter, Input, Output } from '@angular/core';
 import { SubTransaction } from '../sub-transaction/sub-transaction';
 import { CommonModule } from '@angular/common';
+import { CoreService } from '../../service/core-service';
 
 @Component({
   selector: 'app-primary-card',
@@ -11,6 +12,13 @@ import { CommonModule } from '@angular/common';
 export class PrimaryCard {
   @Input() transactions: any[] = [];
   @Output() triggerTransaction = new EventEmitter<any>();
+  role: string = 'user';
+  constructor(private coreService: CoreService) {
+    effect(() => {
+      this.role = coreService.role();
+      console.log('Role changed:', coreService.role());
+    });
+  }
   getDashboardData() {
     const income = this.transactions
       .filter((t) => t.type === 'income')
@@ -34,6 +42,15 @@ export class PrimaryCard {
   }
 
   addTransaction() {
-    this.triggerTransaction.emit();
+    if (this.role == 'admin') {
+      this.triggerTransaction.emit();
+    }
+  }
+
+  addTypeBasedTransaction(type: any) {
+    if (this.role == 'admin') {
+      this.coreService.updateModalType(type);
+      this.triggerTransaction.emit();
+    }
   }
 }

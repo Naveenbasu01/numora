@@ -2,7 +2,7 @@
 
 <div class="transaction-modal">
   <h3 [class.errorTxt]="errorTxt">
-    {{ errorTxt ? errorTxt : data ? 'Edit Transaction' : 'New Transaction' }}
+    <b>{{ errorTxt ? errorTxt : data ? 'Edit Transaction' : 'New Transaction' }}</b>
   </h3>
 
   <form (ngSubmit)="submit()" [formGroup]="transactionForm">
@@ -37,8 +37,17 @@
     </label>
 
     <div class="actions">
-      <button type="button" class="cancel" (click)="close.emit()">Cancel</button>
-      <button type="submit" class="save">Save</button>
+      <div class="delete-action">
+        <ng-container *ngIf="data">
+          <input type="checkbox" (change)="toggleDelete($event)" /> <label>Delete</label>
+        </ng-container>
+      </div>
+      <div class="other-actions">
+        <button type="button" class="cancel" (click)="close.emit()">Cancel</button>
+        <button type="submit" class="save" [class.delete]="deleteCheck">
+          {{ deleteCheck ? 'Delete' : 'Save' }}
+        </button>
+      </div>
     </div>
   </form>
 </div>

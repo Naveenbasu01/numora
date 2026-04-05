@@ -45,7 +45,7 @@ export const aprilLegder = [
     id: 6,
     type: 'income',
     amount: 8000,
-    category: 'Freelance',
+    category: 'Salary',
     notes: 'Side project payment',
     date: '2026-04-03',
   },
