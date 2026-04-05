@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, OnInit } from '@angular/core';
+import { Component, effect, HostListener, inject, OnInit } from '@angular/core';
 import { PrimaryCard } from '../../shared/components/primary-card/primary-card';
 import { PieChart } from '../../shared/components/pie-chart/pie-chart';
 import { GraphChart } from '../../shared/components/graph-chart/graph-chart';
@@ -21,9 +21,12 @@ export default class Dashboard implements OnInit {
   showModal = false;
   editingTransaction?: Transaction;
   private transactionService = inject(TransactionService);
-  ngOnInit(): void {
-    this.transactions = this.transactionService.getTransactions().reverse();
+  constructor() {
+    effect(() => {
+      this.transactions = [...this.transactionService.ledger()].reverse();
+    });
   }
+  ngOnInit(): void {}
   onResize() {
     this.isXXL = window.innerWidth >= 1400;
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import {
   AgCartesianChartOptions,
   AgChartOptions,
@@ -12,7 +12,6 @@ import {
   CartesianChartModule,
   ModuleRegistry,
 } from 'ag-charts-community';
-import { aprilLegder } from '../../constants/ledger';
 ModuleRegistry.registerModules([
   CartesianChartModule,
   CategoryAxisModule,
@@ -26,19 +25,27 @@ ModuleRegistry.registerModules([
   templateUrl: './graph-chart.html',
   styleUrl: './graph-chart.scss',
 })
-export class GraphChart {
+export class GraphChart implements OnChanges {
+  @Input() transactions: any[] = [];
   period: 'daily' | 'weekly' = 'daily';
-  transactions = aprilLegder;
   dataMap: Record<'daily' | 'weekly', any[]> = {
     daily: this.getDailyChartData(),
     weekly: this.getWeeklyChartData(),
   };
 
   options: AgChartOptions = this.buildOptions(this.dataMap[this.period]);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['transactions'] && this.transactions?.length) {
+      this.transactions = [...this.transactions].reverse();
+      const data = this.period === 'daily' ? this.getDailyChartData() : this.getWeeklyChartData();
 
+      this.options = this.buildOptions(data);
+    }
+  }
   changePeriod(value: any) {
     this.period = value.target.value;
-    this.options = this.buildOptions(this.dataMap[this.period]);
+    const data = this.period === 'daily' ? this.getDailyChartData() : this.getWeeklyChartData();
+    this.options = this.buildOptions(data);
   }
 
   private buildOptions(data: any[]): AgCartesianChartOptions {
@@ -118,7 +125,7 @@ export class GraphChart {
           map[day] = 0;
         }
 
-        map[day] += t.amount; // ✅ ONLY ADD, NO SUBTRACTION
+        map[day] += t.amount;
       });
 
     return Object.entries(map).map(([date, value]) => ({

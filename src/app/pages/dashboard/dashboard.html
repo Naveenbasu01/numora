@@ -17,9 +17,11 @@
   <div class="ds_2">
     <div class="row">
       <div class="col-xxl-8 col-lg-7 col-md-12 col-sm-12">
-        <app-graph-chart></app-graph-chart>
+        <app-graph-chart [transactions]="transactions"></app-graph-chart>
       </div>
-      <div class="col-xxl-4 col-lg-5 col-md-12 col-sm-12"><app-pie-chart></app-pie-chart></div>
+      <div class="col-xxl-4 col-lg-5 col-md-12 col-sm-12">
+        <app-pie-chart [transactions]="transactions"></app-pie-chart>
+      </div>
     </div>
   </div>
 </div>

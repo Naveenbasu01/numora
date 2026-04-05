@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { AgCharts } from 'ag-charts-angular';
 
 import { AgChartOptions, LegendModule, ModuleRegistry, PieSeriesModule } from 'ag-charts-community';
@@ -12,18 +12,13 @@ ModuleRegistry.registerModules([LegendModule, PieSeriesModule]);
   templateUrl: './pie-chart.html',
   styleUrl: './pie-chart.scss',
 })
-export class PieChart {
+export class PieChart implements OnChanges {
+  @Input() transactions: any[] = [];
   public options: any;
-  transactions = aprilLegder;
   constructor() {
     this.options = {
-      data: this.getPieChartData(),
-      // title: {
-      //   text: 'Financial Overview',
-      // },
-      background: {
-        visible: false,
-      },
+      data: [],
+      background: { visible: false },
       series: [
         {
           type: 'pie',
@@ -36,6 +31,16 @@ export class PieChart {
       ],
     };
   }
+
+  ngOnChanges(): void {
+    if (!this.transactions?.length) return;
+
+    this.options = {
+      ...this.options,
+      data: this.getPieChartData(),
+    };
+  }
+
   getPieChartData() {
     const income = this.transactions
       .filter((t) => t.type === 'income')
