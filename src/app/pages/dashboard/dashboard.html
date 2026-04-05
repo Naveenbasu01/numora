@@ -1,0 +1,22 @@
+<div class="dashboard">
+  <div class="ds_1">
+    <div class="row">
+      <div class="col-xxl-5 col-lg-6 col-md-12 col-sm-12 ds_1_col">
+        <app-primary-card></app-primary-card>
+      </div>
+
+      <div class="col-xxl-7 col-lg-6 col-md-12 col-sm-12 ds_1_col_2">
+        <app-transaction-card [transactions]="transactions"></app-transaction-card>
+      </div>
+      <!-- <div class="col-xxl-2" *ngIf="isXXL"></div> -->
+    </div>
+  </div>
+  <div class="ds_2">
+    <div class="row">
+      <div class="col-xxl-8 col-lg-7 col-md-12 col-sm-12">
+        <app-graph-chart></app-graph-chart>
+      </div>
+      <div class="col-xxl-4 col-lg-5 col-md-12 col-sm-12"><app-pie-chart></app-pie-chart></div>
+    </div>
+  </div>
+</div>

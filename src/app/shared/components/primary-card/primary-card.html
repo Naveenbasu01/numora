@@ -1,0 +1,29 @@
+<div class="primary-card">
+  <div class="pc-first-block">
+    <h6>Total balance</h6>
+    <h2><b> ₹ 31,310.00</b></h2>
+  </div>
+
+  <div class="pc-actions">
+    <button class="pc-action">
+      <img src="https://cdn-icons-png.flaticon.com/512/3176/3176833.png" alt="" /> Send
+    </button>
+    <button class="pc-action">
+      <img src="https://cdn-icons-png.flaticon.com/512/3176/3176837.png" alt="" /> Receive
+    </button>
+  </div>
+  <div class="pc-transaction">
+    <div class="pct-head">
+      <!-- <img src="https://cdn-icons-png.flaticon.com/512/6785/6785394.png" alt="" /> -->
+      <h6>Recent</h6>
+    </div>
+    <div class="pct-wrapper">
+      <ng-container *ngFor="let item of sampleTransaction; let i = index">
+        <app-sub-transaction [transaction]="item" [ngClass]="'ast_' + i"></app-sub-transaction>
+      </ng-container>
+      <div class="pct-add ast_2">
+        <img src="https://cdn-icons-png.flaticon.com/512/8191/8191584.png" />
+      </div>
+    </div>
+  </div>
+</div>

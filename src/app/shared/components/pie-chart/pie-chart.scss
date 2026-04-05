@@ -1,0 +1,16 @@
+.pie-chart{
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 25px;
+ box-shadow:
+  0 6px 12px rgba(0, 0, 0, 0.04),
+  inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  padding:20px;
+  width: min(450px , 90dvw);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 392px;
+  justify-content: center;
+}

@@ -1,0 +1,11 @@
+.container {
+  min-height: 100vh;        /* 🔥 allows growth */
+  height: auto;
+  background: linear-gradient(
+    135deg,
+    #eaf2ff 0%,
+    #e6f7f1 40%,
+    #f3f8ff 70%,
+    #eef2ff 100%
+  );
+}

@@ -1,0 +1,62 @@
+<!-- Filters -->
+<div class="transaction-filters">
+  <!-- Search -->
+  <input
+    type="text"
+    placeholder="Search transactions..."
+    [(ngModel)]="searchText"
+    class="search-input"
+  />
+
+  <!-- Date range -->
+  <div class="date-range">
+    <input type="date" [(ngModel)]="startDate" />
+    <span>–</span>
+    <input type="date" [(ngModel)]="endDate" />
+  </div>
+</div>
+
+<!-- Transaction list -->
+<div class="transaction-list">
+  <div
+    class="transaction-card"
+    *ngFor="let t of filteredTransactions"
+    [class.income]="t.type === 'income'"
+    [class.expense]="t.type === 'expense'"
+    [class.savings]="t.category === 'Savings'"
+  >
+    <!-- Icon -->
+    <div class="icon">
+      <span *ngIf="t.type === 'income'">
+        <img src="https://cdn-icons-png.flaticon.com/512/5405/5405826.png" alt="" />
+      </span>
+      <span *ngIf="t.type === 'expense' && t.category !== 'Savings'">
+        <img src="https://cdn-icons-png.flaticon.com/512/7794/7794712.png" />
+      </span>
+      <span *ngIf="t.category === 'Savings'">
+        <img src="https://cdn-icons-png.flaticon.com/512/5499/5499598.png" />
+      </span>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="top">
+        <h4>{{ t.category }}</h4>
+        <span
+          class="amount"
+          [class.plus]="t.type === 'income'"
+          [class.minus]="t.type === 'expense'"
+        >
+          {{ t.type === 'income' ? '+' : '-' }}₹{{ t.amount }}
+        </span>
+      </div>
+
+      <div class="bottom">
+        <p class="notes">{{ t.notes }}</p>
+        <span class="date">
+          {{ t.date | date: 'dd MMM yyyy' }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

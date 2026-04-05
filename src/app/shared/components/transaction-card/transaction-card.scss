@@ -1,0 +1,148 @@
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .transaction-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(14px);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Icon */
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      img{
+        width: 20px;
+      }
+    }
+
+    /* Content */
+    .content {
+      flex: 1;
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h4 {
+          margin: 0;
+          font-size: 15px;
+          font-weight: 600;
+          color: #111827;
+        }
+
+        .amount {
+          font-weight: 700;
+          font-size: 15px;
+
+          &.plus {
+            color: #16a34a;
+          }
+
+          &.minus {
+            color: #dc2626;
+          }
+        }
+      }
+
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 4px;
+
+        .notes {
+          margin: 0;
+          font-size: 13px;
+          color: #6b7280;
+        }
+
+        .date {
+          font-size: 12px;
+          color: #9ca3af;
+        }
+      }
+    }
+
+    /* Types */
+    &.income {
+      .icon {
+        background: #dcfce7;
+      }
+    }
+
+    &.expense {
+      .icon {
+        background: #fee2e2;
+      }
+    }
+
+    &.savings {
+      .icon {
+        background: #e0f2fe;
+      }
+    }
+  }
+}
+
+/* Filters */
+.transaction-filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+
+  .search-input {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+    outline: none;
+
+    &:focus {
+      border-color: #6366f1;
+    }
+  }
+
+  .date-range {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    input {
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      font-size: 13px;
+      background-color: #fff;
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .transaction-filters {
+    flex-direction: column;
+    align-items: stretch;
+
+    .date-range {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+}

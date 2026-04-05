@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@use "bootstrap/scss/bootstrap";
+
+
+body{
+  background: linear-gradient(
+  135deg,
+  #eaf2ff 0%,
+  #e6f7f1 40%,
+  #f3f8ff 70%,
+  #eef2ff 100%
+);
+font-family: 'Nunito';
+min-height: calc(100dvh - 130px);
+height: auto;
+overflow-x: hidden;
+margin: 15px 0px;
+margin-top: 115px;
+}
+@media(max-width:767px){
+  body{
+  min-height: calc(100dvh - 115px);
+  overflow-x: hidden;
+  margin: 15px 0px;
+  margin-top: 100px;
+  }
+}

@@ -1,0 +1,23 @@
+ul.transition {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 5;
+  height: 100dvh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+ul.transition li {
+  transform: scaleX(0);
+  transform-origin: right;
+  background: black;
+  height: 35%;
+  width: 100%;
+  list-style: none;
+}

@@ -1,0 +1,34 @@
+.chart-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+
+  h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  select {
+    border: none;
+    background: #ffffff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+}
+
+.expense-chart {
+  width: 100%;
+  height: 320px;
+  display: grid;
+}
