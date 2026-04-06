@@ -3,7 +3,7 @@ ul.transition {
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
-  z-index: 5;
+  z-index: 12;
   height: 100dvh;
   width: 100%;
   top: 0;
@@ -14,7 +14,7 @@ ul.transition {
 }
 
 ul.transition li {
-  transform: scaleX(0);
+  transform: scaleX(1);
   transform-origin: right;
   background: black;
   height: 35%;

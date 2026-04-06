@@ -1,59 +1,86 @@
-# Numora
+Numora
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.2.
+Numora is a minimal, modern account tracking web application built with Angular.
+It focuses on clean UI, smooth interactions, and role-based access to keep things simple and efficient.
 
-## Development server
+This is currently a minimal version of a larger idea. Due to time constraints, I wasn’t able to roll out the entire vision yet — but the foundation is in place, and I’d be happy to expand on it further if needed.
 
-To start a local development server, run:
+## Key Features
 
-```bash
+Role-based toggle
+Default mode: User
+View account data and transaction dates
+Switch to Admin
+Add, edit, and delete records
+Smooth animations powered by GSAP
+Interactive and clean data visualization using AG Charts
+Minimal, glassy UI with performance in mind
+Deployed and live on Firebase Hosting
+
+## Tech Stack
+
+Angular: v20
+Node.js: v18+ (required to run Angular 20)
+GSAP: For animations and transitions
+AG Charts: For enhanced account and data visualizations
+Firebase: Hosting and deployment
+
+## Prerequisites
+
+Make sure you have the following installed:
+
+Node.js ≥ 18.x
+Angular CLI compatible with Angular 20
+
+You can verify with:
+
+node -v
+ng version
+
+## Getting Started
+
+Clone the repository:
+
+git clone <repo-url>
+
+Install dependencies:
+
+npm install
+
+Run the application:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open your browser and navigate to:
 
-## Code scaffolding
+http://localhost:4200
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## User & Admin Modes
 
-```bash
-ng generate component component-name
-```
+The application starts in User mode by default.
+Use the role toggle to switch to Admin mode.
+Admin mode enables:
+Adding new entries
+Editing existing data
+Deleting records
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+This separation is intentional to keep the user experience simple while still allowing full control when needed.
 
-```bash
-ng generate --help
-```
+## Work in Progress
 
-## Building
+Numora is an evolving project.
+I’m actively working on it, and due to limited time, I couldn’t cover the entire idea in this version.
 
-To build the project run:
+That said —
+the structure is scalable, and additional features, validations, analytics, and enhancements can be rolled out easily.
+If you’d like to see those ideas implemented, I’d be glad to do so.
 
-```bash
-ng build
-```
+## Live Demo
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The application is deployed on Firebase and available online.
+(https://numora-bb2b6.web.app)
 
-## Running unit tests
+## Closing Note
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Numora is built with care, focusing on clarity, usability, and maintainability.
+This minimal version reflects the core concept, and more improvements are on the way 🚀

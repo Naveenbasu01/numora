@@ -1,5 +1,5 @@
 import { Component, effect, inject } from '@angular/core';
-import { gsap } from 'gsap/gsap-core';
+import { gsap } from 'gsap';
 import { CoreService } from '../../service/core-service';
 
 @Component({
@@ -13,7 +13,7 @@ export class DefLoader {
   constructor() {
     effect(() => {
       const state = this.coreService.transitionState();
-      // console.log('Transition state changed to:', state);
+      console.log('Transition state changed to:', state);
       this.pageTransition();
     });
   }
@@ -21,13 +21,13 @@ export class DefLoader {
   pageTransition() {
     let tl = gsap.timeline();
     if (this.coreService.transitionState()) {
-      tl.to('ul.transition li', {
-        scaleX: 1,
-        transformOrigin: 'right',
-        duration: 1.5,
-        ease: 'power4.inOut',
-        stagger: 0.1,
-      });
+      // tl.to('ul.transition li', {
+      //   scaleX: 1,
+      //   transformOrigin: 'right',
+      //   duration: 1.5,
+      //   ease: 'power4.inOut',
+      //   stagger: 0.1,
+      // });
     } else {
       tl.to('ul.transition li', {
         scaleX: 0,

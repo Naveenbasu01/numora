@@ -5,7 +5,7 @@ export type Role = 'user' | 'admin';
   providedIn: 'root',
 })
 export class CoreService {
-  readonly transitionState = signal(false);
+  readonly transitionState = signal(true);
   readonly amoebaState = signal(false);
   start() {
     this.transitionState.set(true);
